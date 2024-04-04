@@ -82,15 +82,21 @@ input, textarea, fieldset {
 	flex: 1 1 20em;
 }
 
-#features label, #colors label{
-	flex: 1 1 auto;
-	color: #000;
+#features label,#colors label{
+
+flex:1 1 auto;
+color:#000;
+
 }
 
 #colors ul{
-	display: flex;
-	flex-wrap: wrap;
+display:flex;
+flex-wrap: wrap;
+
+
 }
+
+
 
 /*  ========= FORM WIDGET STYLES  ========= */
 /* Fonts are set to "inherit" the font-family of the document.*/
@@ -104,19 +110,31 @@ input.textinput {
 }
 
 textarea{
-	display: block;
-	height: 5em;
-	border: 1px solid rgba(0, 0, 0, .3);
-	padding-left: 6px;
-	font-size: .875em;
-	line-height: 1.25em;
-	resize: none;
+display: block;
+height:5em;
+border:1px solid rgba(0, 0, 0,.3);
+padding-left:6px;
+font-size :.875em;
+line-height:1.25em;
+resize:none;
+
+
+
 }
 
 select{
-	width: 6em;
-	margin-right: 10px;
+
+width:6em;
+margin-right: 10px;
+
+
+
 }
+
+
+
+
+
 
 
 input[type="submit"] {
@@ -149,9 +167,6 @@ legend {
 	overflow: hidden;
 }
 
-p{
-	color: #000;
-}
 	
 </style> 
 
@@ -159,7 +174,9 @@ p{
 
 <body>
 
-<form onsubmit="return answer()">
+
+
+<form onsubmit="return dataResult()">
 
 <h2>Custom Sneaker Order Form</h2>
 
@@ -189,6 +206,7 @@ p{
 
 </li>
 
+
 <li>
 <label for="colors">Sneaker Color:</label>
 
@@ -212,51 +230,37 @@ p{
 <legend>Feature</legend>
   <ul>
   <li><label><input type="checkbox" name="feature" value="laces"> Sparkley laces</label></li>
-  <li><label><input type="checkbox" name="feature" value="logo" checked> Metallic logo</label></li>
+  <li><label><input type="checkbox" name="feature" value="logo"> Metallic logo</label></li>
   <li><label><input type="checkbox" name="feature" value="heels"> Light-up heels</label></li>
   <li><label><input type="checkbox" name="feature" value="mp3"> MP3-enabled</label></li>
   </ul>
 </fieldset>
-
 </li>
 
-<li class="buttons"><input type="submit" value="ENTER"></li>
+<li class="buttons"><input type="submit" value="INVIA "></li>
 
 </ul>
-
 </form>
 
-<p id="result"></p>
+<p id="dati"></p>
 
 <script>
-	function answer(){
-		const name = document.getElementById('form-name').value;
-		const email = document.getElementById('form-email').value;
-		const tel = document.getElementById('form-tel').value;
-		const text = document.getElementById('form-story').value;
-		const size = document.getElementById('sizes').value;
-		const color = document.getElementById('colors').value;
-		const feature = document.getElementById('features').value;
 
-		const resultElement = document.getElementById('result');
+	function dataResult(){
 
-		resultElement.innerHTML = `il nome è: ${name}, l'email è: ${email}, il telefono è: ${tel}, il testo è: ${text}, la grandezza è: ${size}, il colore è: ${color}, le festures sono: ${feature}`;
+		const nome = document.getElementById("form-name").value;
+		const mail = document.getElementById("form-email").value;
+		const telefono = document.getElementById("form-tel").value;
+		const you = document.getElementById("form-story").value;
+		const size = document.getElementById("sizes").value;
+		const colore = document.querySelector('input[name="color"]:checked').value;
+		const feature = document.querySelector('input[name="feature"]:checked').value;
 
-		return false;
-	}
-
-
-
-	function stampaRadio(){
-
-		const radioSelezionato = document.querySelector('input[name="color]:checked').value;
-
-		document.getElementById('result').textContent = `hai selezionato il colore: ${radioSelezionato}`;
+		document.getElementById("dati").textContent = `I tuoi dati sono: ${nome}, ${mail}, ${telefono}, ${you}, ${size}, ${colore}, ${feature}`;
 
 		return false;
 
 	}
-
 
 </script>
 
